@@ -531,17 +531,17 @@ module EDI
       when /^EDI_DC/
         'I'  # SAP IDoc
       when re
-         'X'+$3     # XML, Doctype = Interchange, syntax standard key (E, I, ...) postfix
+        'X'+$3     # XML, Doctype = Interchange, syntax standard key (E, I, ...) postfix
       when /^\037\213/
-         'GZ' # gzip
+        'GZ' # gzip
       when /^\037\235/
-         'Z'  # compress
+        'Z'  # compress
       when /^\037\036/
-         'z'  # pack
+        'z'  # pack
       when /^BZh[0-\377]/
           'BZ' # bzip2
       else
-         "?? (stream starts with: #{buf[0..15]})"
+        "?? (stream starts with: #{buf[0..15]})"
       end
     end
 
