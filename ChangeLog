@@ -1,5 +1,65 @@
 = Change log
 
+== 0.9.6.2
+=== Tested with Ruby 2.2.1, some RDoc links fixed
+
+== 0.9.6.1
+
+=== Service messages, subset support
+* Master data for CONTRL, AUTACK and KEYMAN fixed now, new test added
+* Master data fix: Elimination of non-ASCII chars so Ruby 1.9 does not need -E
+* Subsets now tolerated (warning & fallback to plain EDIFACT) 
+* More support for subset EANCOM (prepared for master data)
+
+== 0.9.6.0
+
+=== Adjustments for Ruby 1.9.2
+* Encodings added, minor patches required, some typos fixed
+* Some dead files removed
+* XML: FPI in doctype declaration adapted to new organization name
+* Tests: Rakefile replaces Makefile, works for both Ruby 1.8 & 1.9 now
+
+== 0.9.5.3
+
+=== Adjustments for Ruby 1.8.7
+* Changed when cond: ... to when cond then ...
+* Removed "break" from a case/when block
+* Corrected expectations in tests for edi_split
+* Adjusted a test that calls ruby on the cmd line to accept versions (prep for 1.9.x)
+
+== 0.9.5.2
+
+=== Misc improvements & bug fixes
+* Two bugs fixed re. ANSI msg and msg_group initialization
+* ANSI getters/setters "rXX" in test use now.
+* Support for 270, 271, 276, 277 added, including test cases
+
+== 0.9.5.1
+
+=== News
+* First limited support for UN/EDIFACT Subsets
+* Basic support for SEDAS (as source, not target standard)
+* Basic support for ANSI X12 (just 837, 997 for V4.01)
+* Support for processing arbitrarily large interchanges through classes
+  EDI::E::StreamingParser and StreamingBuilder
+* New testcase: test_streaming.rb (large, proprietary testfiles not provided)
+* peek(): Now featuring ":deep_peek" (group and message structure)
+* 0.9.5.1: X12 835 supported, test suite: x12 cases added
+
+=== Changes
+* Interchange.peek: Now supporting parameters. New: deep_peek
+* Interchange.parse & Interchange.peek re-implemented based on StreamingBuilder
+* MsgGroup::E::add() may now prevent auto-validation
+* Class EDI::Time introduced, base class Time not modified anymore
+
+=== Misc improvements & bug fixes
+* EDI::Bzip2Reader::getc() added  (needed by new streaming parser)
+* EDI::Collection::find() added
+* EDI::Collection::[]: Now accepting also Regex objects
+* standards.rb: EDIFACT version & release: to_s enforced (bug report by Marius Z., SV1 issue) 
+* 0.9.5.1: EDI::logger available now!
+
+
 == 0.9.4.1
 
 === News
