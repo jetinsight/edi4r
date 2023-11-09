@@ -477,7 +477,7 @@ module EDI
 #       when 'SEGNUM'
        @value = buf[@offset...@offset+@length]
        if self.format[0]==?n # Numerical?
-         if @value =~ /^ *$/ # Optional numerical field
+         if @value.respond_to?(:=~) && @value =~ /^ *$/ # Optional numerical field
            @value = nil
            return
          end

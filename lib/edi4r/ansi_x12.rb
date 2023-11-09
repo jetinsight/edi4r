@@ -1166,7 +1166,8 @@ module EDI::A
         #
         # Charset check
         #
-        if (pos = (value =~ root.illegal_charset_pattern)) # != nil
+        pos = (value =~ root.illegal_charset_pattern) if value.respond_to?(:=~)
+        if (pos) # != nil
           EDI::logger.warn "#{location}: Illegal character: #{value[pos].chr} (#{value[pos]})"
           err_count += 1
         end
